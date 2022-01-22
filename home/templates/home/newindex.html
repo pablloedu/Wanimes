@@ -1,0 +1,106 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{%static '__card.css'%}">
+
+    <link rel="stylesheet" href="{%static '__topBar.css'%}">
+
+
+</head>
+<body>
+    <div class="header">
+        <!-- Cabeçalho -->
+        <header>
+            <a href="#" class="logo">Wanimes!</a>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Team</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </header>
+        <section class="banner"></section>
+    </div>
+    <div class="div-container">
+        {% for anime in animes %}
+            <div class="divizona">
+                <div class="card">
+                    <!--  Parte superior -- + -- Corte    -->
+                    <div class="card-header" style="background-image: url({{anime.1}}); filter: saturate(140%);">
+                        <div class="card-header-bar">
+                            <a href="#" class="btn-message"><span class="sr-only">Message</span></a>
+                            <a href="#" class="btn-menu"><span class="sr-only">Menu</span></a>
+                        </div>
+            
+                        <div class="card-header-slanted-edge">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><path class="polygon" d="M-20,200,1000,0V200Z" /></svg>
+                            <a href="#" class="btn-follow"><span class="sr-only">Follow</span></a>
+                        </div>
+                    </div>
+                        
+                    <!-- Parte Textual -- Botão de Like e deslike -->
+                    <div class="card-body">
+                        <div class="name-container">
+                            <h2 class="name">{{anime.0}}</h2>
+                        </div>
+                        <h4 class="job-title">Product Designer</h4>
+                        <!-- <div class="bio">
+                            Lorem ipsum.
+                        </div> -->
+                        <div class="social-accounts">
+                            <a href="#"><img src="https://img.icons8.com/ios/50/thumbs-down.png" alt=""><span class="sr-only">Dribbble</span></a>
+                            <a href="#"><img src="https://img.icons8.com/ios/50/000000/thumb-up--v1.png" alt=""><span class="sr-only">Instagram</span></a>
+                        </div>
+                    </div>
+                        
+                    <!-- Footer -->
+                    <div class="card-footer">
+                        <div class="stats">
+                            <div class="stat">
+                                <span class="label">Status</span>
+                                <span class="value">56K</span>
+                            </div>
+                            
+                            <div class="stat">
+                                <span class="label">Nota</span>
+                                <span class="value">940</span>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+        <div class="load">
+                    <a href="#"  onclick="carregar()" class="botão">Carregar Mais<span class="sr-only">Follow</span></a>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+</body>
+<script>
+    window.addEventListener('scroll', function(){
+        var header = document.querySelector('header');
+        header.classList.toggle('sticky', window.scrollY > 0)
+    })
+    function carregar(){
+        
+    }
+
+</script>
+</html>
